@@ -17,7 +17,7 @@ const ItemListRow = ({
   const playPromiseRef = useRef(null);
 
   const handleMouseEnter = () => {
-    if (videoRef.current) {
+    if (videoRef.current && !isNaN(videoRef.current.duration)) {
       const video = videoRef.current;
       
       // Set start position
@@ -35,7 +35,7 @@ const ItemListRow = ({
   };
 
   const handleMouseLeave = () => {
-    if (videoRef.current) {
+    if (videoRef.current && !isNaN(videoRef.current.duration)) {
       // Wait for play promise to resolve before pausing
       if (playPromiseRef.current !== null) {
         playPromiseRef.current
@@ -57,7 +57,7 @@ const ItemListRow = ({
   };
 
   const handleTimeUpdate = () => {
-    if (videoRef.current) {
+    if (videoRef.current && !isNaN(videoRef.current.duration)) {
       const video = videoRef.current;
       const endTime = startTimeRef.current + thumbnailVideoDuration;
       
@@ -70,7 +70,7 @@ const ItemListRow = ({
 
   const handleVideoLoaded = () => {
     // Set initial frame based on thumbnailVideoStart setting
-    if (videoRef.current) {
+    if (videoRef.current && !isNaN(videoRef.current.duration)) {
       if (thumbnailVideoStart === "end") {
         videoRef.current.currentTime = Math.max(0, videoRef.current.duration - thumbnailVideoDuration);
       } else {

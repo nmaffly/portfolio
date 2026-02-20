@@ -10,7 +10,6 @@ const ChatInterface = () => {
   ]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
   const messagesEndRef = useRef(null);
   const inputRef = useRef(null);
   const isInitialMount = useRef(true);
@@ -39,7 +38,6 @@ const ChatInterface = () => {
     setMessages(prev => [...prev, userMessage]);
     setInput('');
     setIsLoading(true);
-    setError(null);
 
     try {
       // Call your Express backend on port 3001
@@ -69,7 +67,6 @@ const ChatInterface = () => {
 
     } catch (err) {
       console.error('Chat error:', err);
-      setError('Sorry, something went wrong. Please try again.');
       
       // Add error message to chat
       setMessages(prev => [...prev, {

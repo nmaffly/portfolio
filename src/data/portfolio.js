@@ -16,11 +16,11 @@ export const portfolioData = {
     {
       id: "scoutai",
       title: "SCOUTAI",
-      thumbnail: "/scoutAI_demo_thumbnail.png",
-      thumbnailVideo: "/scoutAI_loop.mp4",
+      thumbnail: `${process.env.PUBLIC_URL}/scoutAI_demo_thumbnail.png`,
+      thumbnailVideo: `${process.env.PUBLIC_URL}/scoutAI_loop.mp4`,
       thumbnailVideoStart: "end", // "start" or "end"
       thumbnailVideoDuration: 6, // seconds to play
-      demoVideo: "/scoutAI_loop.mp4",
+      demoVideo: `${process.env.PUBLIC_URL}/scoutAI_loop.mp4`,
       impact:
         "Coaches have access to stats, but little guidance - I wanted to build something that gave coaches live insights in real time.",
       how:
@@ -41,11 +41,11 @@ export const portfolioData = {
     {
       id: "rhythmoji",
       title: "RHYTHMOJI",
-      thumbnail: "/rhythmoji_thumbnail.png",
-      thumbnailVideo: "/rhythmoji_demo.mp4",
+      thumbnail: `${process.env.PUBLIC_URL}/rhythmoji_thumbnail.png`,
+      thumbnailVideo: `${process.env.PUBLIC_URL}/rhythmoji_demo.mp4`,
       thumbnailVideoStart: "start", // "start" or "end"
       thumbnailVideoDuration: 2.2, // seconds to play
-      demoVideo: "/rhythmoji_demo.mp4",
+      demoVideo: `${process.env.PUBLIC_URL}/rhythmoji_demo.mp4`,
       why:
         "They say music is a window to the soul, so I wanted to build a way to capture it in a fun and shareable way.",
       how:
@@ -73,11 +73,11 @@ export const portfolioData = {
     {
       id: "wavelength",
       title: "WAVELENGTH",
-      thumbnail: "/wavelength_thumbnail.png",
-      thumbnailVideo: "/wavelength_demo.mp4",
+      thumbnail: `${process.env.PUBLIC_URL}/wavelength_thumbnail.png`,
+      thumbnailVideo: `${process.env.PUBLIC_URL}/wavelength_demo.mp4`,
       thumbnailVideoStart: "end", // "start" or "end"
       thumbnailVideoDuration: 5, // seconds to play
-      demoVideo: "/wavelength_demo.mp4",
+      demoVideo: `${process.env.PUBLIC_URL}/wavelength_demo.mp4`,
       why:
         "Discovering music through friends felt more meaningful than purely algorithmic recommendations.",
       how:
@@ -103,8 +103,8 @@ export const portfolioData = {
     {
       id: "wordle",
       title: "WORDLE SOLVER",
-      thumbnail: "/wordlesmith_thumbnail.png",
-      thumbnailVideo: "/wordle_demo.mp4",
+      thumbnail: `${process.env.PUBLIC_URL}/wordlesmith_thumbnail.png`,
+      thumbnailVideo: `${process.env.PUBLIC_URL}/wordle_demo.mp4`,
       thumbnailVideoStart: "start", // "start" or "end"
       thumbnailVideoDuration: 5, // seconds to play
       demoVideo: "/wordle_demo.mp4",
@@ -135,11 +135,11 @@ export const portfolioData = {
     {
       id: "courtcheck",
       title: "COURTCHECK",
-      thumbnail: "/courtcheck_thumbnail.png",
-      thumbnailVideo: "/courtcheck_demo.mp4",
+      thumbnail: `${process.env.PUBLIC_URL}/courtcheck_thumbnail.png`,
+      thumbnailVideo: `${process.env.PUBLIC_URL}/courtcheck_demo.mp4`,
       thumbnailVideoStart: "start", // "start" or "end"
       thumbnailVideoDuration: 5, // seconds to play
-      demoVideo: "/courtcheck_demo.mp4",
+      demoVideo: `${process.env.PUBLIC_URL}/courtcheck_demo.mp4`,
       why:
         "Collegiate tennis matches are often played without referees, so I wanted to build a system that could automatically ground insights in what actually happened on court and present it clearly.",
       how:
