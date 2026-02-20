@@ -1,3 +1,5 @@
+const assetPath = (fileName) => `${process.env.PUBLIC_URL || ''}/${fileName}`;
+
 export const portfolioData = {
   intro: {
     name: "Nate Maffly",
@@ -16,11 +18,11 @@ export const portfolioData = {
     {
       id: "scoutai",
       title: "SCOUTAI",
-      thumbnail: `${process.env.PUBLIC_URL}/scoutAI_demo_thumbnail.png`,
-      thumbnailVideo: `${process.env.PUBLIC_URL}/scoutAI_loop.mp4`,
+      thumbnail: assetPath("scoutAI_demo_thumbnail.png"),
+      thumbnailVideo: assetPath("scoutAI_loop.mp4"),
       thumbnailVideoStart: "end", // "start" or "end"
       thumbnailVideoDuration: 6, // seconds to play
-      demoVideo: `${process.env.PUBLIC_URL}/scoutAI_loop.mp4`,
+      demoVideo: assetPath("scoutAI_loop.mp4"),
       impact:
         "Coaches have access to stats, but little guidance - I wanted to build something that gave coaches live insights in real time.",
       how:
@@ -41,11 +43,11 @@ export const portfolioData = {
     {
       id: "rhythmoji",
       title: "RHYTHMOJI",
-      thumbnail: `${process.env.PUBLIC_URL}/rhythmoji_thumbnail.png`,
-      thumbnailVideo: `${process.env.PUBLIC_URL}/rhythmoji_demo.mp4`,
+      thumbnail: assetPath("rhythmoji_thumbnail.png"),
+      thumbnailVideo: assetPath("rhythmoji_demo.mp4"),
       thumbnailVideoStart: "start", // "start" or "end"
       thumbnailVideoDuration: 2.2, // seconds to play
-      demoVideo: `${process.env.PUBLIC_URL}/rhythmoji_demo.mp4`,
+      demoVideo: assetPath("rhythmoji_demo.mp4"),
       why:
         "They say music is a window to the soul, so I wanted to build a way to capture it in a fun and shareable way.",
       how:
@@ -73,11 +75,11 @@ export const portfolioData = {
     {
       id: "wavelength",
       title: "WAVELENGTH",
-      thumbnail: `${process.env.PUBLIC_URL}/wavelength_thumbnail.png`,
-      thumbnailVideo: `${process.env.PUBLIC_URL}/wavelength_demo.mp4`,
+      thumbnail: assetPath("wavelength_thumbnail.png"),
+      thumbnailVideo: assetPath("wavelength_demo.mp4"),
       thumbnailVideoStart: "end", // "start" or "end"
       thumbnailVideoDuration: 5, // seconds to play
-      demoVideo: `${process.env.PUBLIC_URL}/wavelength_demo.mp4`,
+      demoVideo: assetPath("wavelength_demo.mp4"),
       why:
         "Discovering music through friends felt more meaningful than purely algorithmic recommendations.",
       how:
@@ -103,11 +105,11 @@ export const portfolioData = {
     {
       id: "wordle",
       title: "WORDLE SOLVER",
-      thumbnail: `${process.env.PUBLIC_URL}/wordlesmith_thumbnail.png`,
-      thumbnailVideo: `${process.env.PUBLIC_URL}/wordle_demo.mp4`,
+      thumbnail: assetPath("wordlesmith_thumbnail.png"),
+      thumbnailVideo: assetPath("wordle_demo.mp4"),
       thumbnailVideoStart: "start", // "start" or "end"
       thumbnailVideoDuration: 5, // seconds to play
-      demoVideo: "/wordle_demo.mp4",
+      demoVideo: assetPath("wordle_demo.mp4"),
       why:
         "I love Wordle and coding, so I built and evaluated a data‑driven, algorithmic solver that sits right at the intersection of both.",
       how:
@@ -135,11 +137,11 @@ export const portfolioData = {
     {
       id: "courtcheck",
       title: "COURTCHECK",
-      thumbnail: `${process.env.PUBLIC_URL}/courtcheck_thumbnail.png`,
-      thumbnailVideo: `${process.env.PUBLIC_URL}/courtcheck_demo.mp4`,
+      thumbnail: assetPath("courtcheck_thumbnail.png"),
+      thumbnailVideo: assetPath("courtcheck_demo.mp4"),
       thumbnailVideoStart: "start", // "start" or "end"
       thumbnailVideoDuration: 5, // seconds to play
-      demoVideo: `${process.env.PUBLIC_URL}/courtcheck_demo.mp4`,
+      demoVideo: assetPath("courtcheck_demo.mp4"),
       why:
         "Collegiate tennis matches are often played without referees, so I wanted to build a system that could automatically ground insights in what actually happened on court and present it clearly.",
       how:
