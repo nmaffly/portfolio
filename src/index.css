@@ -1,13 +1,85 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-[#111111];
+  }
+
+  body {
+    @apply bg-[#f7f7f5] text-[#111111];
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Remove all rounded corners globally */
+  * {
+    border-radius: 0 !important;
+  }
+
+  /* Respect reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* Focus styles */
+  :focus-visible {
+    @apply outline-none ring-2 ring-[#1d4ed8];
+  }
+
+  /* Selection color */
+  ::selection {
+    @apply bg-[#1d4ed8] text-white;
+  }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  /* Gradient fade on right edge to indicate more content */
+  .section-fade::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 100vh;
+    background: linear-gradient(to left, rgba(17, 17, 17, 0.08), transparent);
+    pointer-events: none;
+    z-index: 30;
+  }
+  
+  /* Hide fade on last section */
+  .section-fade.last-section::after {
+    display: none;
+  }
 }
+
+/* Mobile responsive - hide sidebar and full width content */
+@media (max-width: 1024px) {
+  aside {
+    display: none !important;
+  }
+  
+  main#chapters-container {
+    margin-left: 0 !important;
+  }
+  
+  header > div {
+    margin-left: 0 !important;
+  }
+}
+

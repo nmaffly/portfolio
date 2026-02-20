@@ -1,70 +1,150 @@
-# Getting Started with Create React App
+# Brutalist Portfolio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A desktop-first portfolio with clean brutalist design, horizontal chapter navigation, and keyboard shortcuts.
 
-## Available Scripts
+## Running the Project
 
-In the project directory, you can run:
+```bash
+npm start
+```
 
-### `npm start`
+Runs on `http://localhost:3000`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Customizing Content
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+All content is centralized in `/src/data/portfolio.js`. Edit this file to update:
 
-### `npm test`
+### Personal Info
+- Name, headline, subheadline
+- Links (GitHub, LinkedIn, email)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Projects
+Add/edit projects with:
+- `title`: Project name (ALL CAPS for brutalist aesthetic)
+- `why`: One sentence explaining the motivation (human)
+- `how`: One sentence explaining the approach (technical)
+- `tags`: Array of technologies
+- `details`: Array of bullet points for the modal
+- `links`: GitHub and/or live URLs
 
-### `npm run build`
+### Experience
+Add/edit experience with:
+- `role`: Job title (ALL CAPS)
+- `org`: Company/organization name
+- `dates`: Time period
+- `summary`: One-line context description
+- `details`: Array of accomplishments
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Experiments
+Add/edit learning projects with:
+- `title`: Project name
+- `goal`: What you were trying to learn
+- `lesson`: What you discovered
+- `doNext`: What you'd improve
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Now
+Update the three fields:
+- `exploring`: Current interests
+- `openTo`: What opportunities you're seeking
+- `currently`: What you're actively building
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Navigation
 
-### `npm run eject`
+### Keyboard
+- `←` / `→`: Navigate between chapters
+- `Home`: Jump to first chapter
+- `End`: Jump to last chapter
+- `Esc`: Close any open modal
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Mouse
+- **Desktop**: Horizontal scroll or click project/experience items
+- **Mobile**: Swipe or tap (stacks vertically, no snap scrolling)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Structure
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```
+src/
+├── App.js                    # Main app with chapter layout
+├── data/
+│   └── portfolio.js          # All content (EDIT THIS)
+├── components/
+│   ├── Header.js             # Fixed header with progress indicator
+│   ├── Section.js            # Chapter wrapper
+│   ├── ItemListRow.js        # Project/experience list item
+│   └── Modal.js              # Accessible detail modal
+├── hooks/
+│   ├── useChapterNav.js      # Keyboard navigation logic
+│   └── usePrefersReducedMotion.js
+└── index.css                 # Brutalist styles
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Design Principles
 
-## Learn More
+This portfolio follows brutalist design:
+- **No rounded corners**: Everything is sharp edges
+- **One accent color**: Blue (#1d4ed8) for underlines and focus
+- **Minimal motion**: Only opacity and underlines on hover
+- **Typography over decoration**: Strong hierarchy, system fonts
+- **Visible structure**: Borders, dividers, hard edges
+- **Honest layout**: No gradients, no shadows, no tricks
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Adding a New Project
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. Open `/src/data/portfolio.js`
+2. Add a new object to the `projects` array:
 
-### Code Splitting
+```javascript
+{
+  id: "unique-id",
+  title: "PROJECT NAME",
+  why: "Human reason for building it",
+  how: "Technical approach summary",
+  tags: ["Tech", "Stack", "Here"],
+  details: [
+    "First accomplishment",
+    "Second accomplishment",
+    "Third accomplishment"
+  ],
+  links: {
+    github: "https://github.com/...",
+    live: null  // or URL if deployed
+  }
+}
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Adding a New Experience
 
-### Analyzing the Bundle Size
+1. Open `/src/data/portfolio.js`
+2. Add a new object to the `experience` array:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```javascript
+{
+  id: "unique-id",
+  role: "YOUR ROLE",
+  org: "Company Name",
+  dates: "Jan 2024 - Present",
+  summary: "One-line context",
+  details: [
+    "What you did",
+    "Impact you made"
+  ]
+}
+```
 
-### Making a Progressive Web App
+## Browser Support
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- Desktop Chrome/Firefox/Safari/Edge (latest)
+- Mobile responsive (stacks vertically)
+- Respects `prefers-reduced-motion`
 
-### Advanced Configuration
+## Accessibility
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- ✅ Keyboard navigation throughout
+- ✅ Focus trap in modals
+- ✅ ARIA labels where needed
+- ✅ Semantic HTML structure
+- ✅ Reduced motion support
 
-### Deployment
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+MIT
