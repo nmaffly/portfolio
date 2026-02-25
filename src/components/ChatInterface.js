@@ -72,7 +72,7 @@ const ChatInterface = () => {
       // Add error message to chat
       setMessages(prev => [...prev, {
         role: 'assistant',
-        content: 'Sorry, I encountered an error. Please try again or contact me directly at nmaffly@example.com',
+        content: 'Sorry, I encountered an error. Please try again or contact me directly at ncmaffly@ucdavis.edu',
         timestamp: new Date()
       }]);
     } finally {

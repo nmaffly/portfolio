@@ -1,15 +1,28 @@
 const DEFAULT_ALLOWED_ORIGIN = 'https://nmaffly.github.io';
+
+function normalizeOrigin(value) {
+  if (!value) return null;
+  try {
+    return new URL(value).origin;
+  } catch (err) {
+    return value.replace(/\/+$/, '');
+  }
+}
+
 const allowedOrigins = (process.env.FRONTEND_URL || DEFAULT_ALLOWED_ORIGIN)
   .split(',')
-  .map((o) => o.trim())
+  .map((o) => normalizeOrigin(o.trim()))
   .filter(Boolean);
+const allowAnyOrigin = allowedOrigins.includes('*');
 
 function setCorsHeaders(req, res) {
   const origin = req.headers.origin;
-  if (origin && allowedOrigins.includes(origin)) {
+  if (origin && (allowAnyOrigin || allowedOrigins.includes(origin))) {
     res.setHeader('Access-Control-Allow-Origin', origin);
   } else if (!origin && allowedOrigins.length > 0) {
     res.setHeader('Access-Control-Allow-Origin', allowedOrigins[0]);
+  } else if (!origin && allowAnyOrigin) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
   }
 
   res.setHeader('Vary', 'Origin');

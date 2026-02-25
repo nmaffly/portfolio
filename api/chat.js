@@ -10,26 +10,29 @@ const RATE_LIMIT_MAX = 10;
 const rateLimitStore = new Map();
 
 const DEFAULT_ALLOWED_ORIGIN = 'https://nmaffly.github.io';
+
+function normalizeOrigin(value) {
+  if (!value) return null;
+  try {
+    return new URL(value).origin;
+  } catch (err) {
+    return value.replace(/\/+$/, '');
+  }
+}
+
 const allowedOrigins = (process.env.FRONTEND_URL || DEFAULT_ALLOWED_ORIGIN)
   .split(',')
-  .map((o) => o.trim())
+  .map((o) => normalizeOrigin(o.trim()))
   .filter(Boolean);
+const allowAnyOrigin = allowedOrigins.includes('*');
 
 let kbIndex = null;
 let kbIndexPromise = null;
 
 function setCorsHeaders(req, res) {
-  const origin = req.headers.origin;
-  if (origin && allowedOrigins.includes(origin)) {
-    res.setHeader('Access-Control-Allow-Origin', origin);
-  } else if (!origin && allowedOrigins.length > 0) {
-    res.setHeader('Access-Control-Allow-Origin', allowedOrigins[0]);
-  }
-
-  res.setHeader('Vary', 'Origin');
-  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-  res.setHeader('Access-Control-Allow-Credentials', 'true');
 }
 
 function getClientIp(req) {
