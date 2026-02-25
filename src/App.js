@@ -22,6 +22,26 @@ function App() {
       container.scrollLeft = 0;
     }
   }, []);
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('debugAssets') !== '1') {
+      return;
+    }
+
+    const mediaRows = portfolioData.projects
+      .filter((project) => project.thumbnail || project.thumbnailVideo || project.demoVideo)
+      .map((project) => ({
+        id: project.id,
+        thumbnail: project.thumbnail || '(none)',
+        thumbnailVideo: project.thumbnailVideo || '(none)',
+        demoVideo: project.demoVideo || '(none)'
+      }));
+
+    console.group('[asset-debug] Portfolio media URL resolution');
+    console.log('PUBLIC_URL:', process.env.PUBLIC_URL || '(empty)');
+    console.table(mediaRows);
+    console.groupEnd();
+  }, []);
 
   return (
     <div className="min-h-screen bg-[#f7f7f5] text-[#111111]">
@@ -84,7 +104,7 @@ function App() {
         <Section
           index={1}
           title="PROJECTS"
-          subtitle="Here are some things I've enjoyed building."
+          subtitle="Some things I've enjoyed building."
           metadata="REV 0.3"
         >
           <div className="col-span-12 space-y-6">
@@ -120,6 +140,7 @@ function App() {
                 title={exp.role}
                 subtitle={`${exp.org} — ${exp.dates}`}
                 tags={[exp.summary]}
+                thumbnail={exp.logo}
                 onClick={() => setSelectedExperience(exp)}
               />
             ))}
@@ -148,6 +169,7 @@ function App() {
             <div className={`flex gap-6 mb-6 ${selectedProject.demoVideo ? 'flex-row' : 'flex-col'}`}>
               {selectedProject.demoVideo && (
                 <div className="flex-shrink-0 w-1/2">
+                  {console.log("MODAL VIDEO SRC:", selectedProject?.demoVideo)}
                   <video 
                     autoPlay 
                     loop 
@@ -230,17 +252,50 @@ function App() {
               <p className="text-base text-gray-600 mb-4">{selectedExperience.dates}</p>
               <p className="text-base italic">{selectedExperience.summary}</p>
             </div>
-            <div>
-              <h3 className="text-sm font-mono mb-3 uppercase">Details</h3>
-              <ul className="space-y-2">
-                {selectedExperience.details.map((detail, idx) => (
-                  <li key={idx} className="flex">
-                    <span className="mr-3">—</span>
-                    <span>{detail}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            {selectedExperience.overview && (
+              <div className="mb-4">
+                <h3 className="text-sm font-mono mb-3 uppercase">Overview</h3>
+                <p className="text-sm">{selectedExperience.overview}</p>
+              </div>
+            )}
+            {selectedExperience.whatIBuilt && selectedExperience.whatIBuilt.length > 0 && (
+              <div className="mb-4">
+                <h3 className="text-sm font-mono mb-3 uppercase">What I Built</h3>
+                <ul className="space-y-2">
+                  {selectedExperience.whatIBuilt.map((item, idx) => (
+                    <li key={idx} className="flex text-sm">
+                      <span className="mr-3">—</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+            {selectedExperience.impact && selectedExperience.impact.length > 0 && (
+              <div className="mb-4">
+                <h3 className="text-sm font-mono mb-3 uppercase">Impact</h3>
+                <ul className="space-y-2">
+                  {selectedExperience.impact.map((item, idx) => (
+                    <li key={idx} className="flex text-sm">
+                      <span className="mr-3">✓</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+            {selectedExperience.stack && selectedExperience.stack.length > 0 && (
+              <div>
+                <h3 className="text-sm font-mono mb-3 uppercase">Technologies & Tools</h3>
+                <div className="flex flex-wrap gap-2">
+                  {selectedExperience.stack.map((tech, idx) => (
+                    <span key={idx} className="text-xs font-mono px-3 py-1 border border-[#111111]">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
           </>
         )}
       </Modal>

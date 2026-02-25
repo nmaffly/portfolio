@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CHAPTER_NAMES = ['HOME', 'PROJECTS', 'EXPERIENCE', 'EXPERIMENTS', 'CHAT'];
+const CHAPTER_NAMES = ['HOME', 'PROJECTS', 'EXPERIENCE', 'nateAI'];
 
 const Header = ({ name, descriptor, currentChapter, totalChapters }) => {
   return (

@@ -17,7 +17,7 @@ const ItemListRow = ({
   const playPromiseRef = useRef(null);
 
   const handleMouseEnter = () => {
-    if (videoRef.current && !isNaN(videoRef.current.duration)) {
+    if (videoRef.current && Number.isFinite(videoRef.current.duration)) {
       const video = videoRef.current;
       
       // Set start position
@@ -27,7 +27,9 @@ const ItemListRow = ({
         startTimeRef.current = 0;
       }
       
-      video.currentTime = startTimeRef.current;
+      if (Number.isFinite(startTimeRef.current)) {
+        video.currentTime = startTimeRef.current;
+      }
       
       // Store the play promise
       playPromiseRef.current = video.play();
@@ -35,14 +37,16 @@ const ItemListRow = ({
   };
 
   const handleMouseLeave = () => {
-    if (videoRef.current && !isNaN(videoRef.current.duration)) {
+    if (videoRef.current && Number.isFinite(videoRef.current.duration)) {
       // Wait for play promise to resolve before pausing
       if (playPromiseRef.current !== null) {
         playPromiseRef.current
           .then(() => {
             if (videoRef.current) {
               videoRef.current.pause();
-              videoRef.current.currentTime = startTimeRef.current;
+              if (Number.isFinite(startTimeRef.current)) {
+                videoRef.current.currentTime = startTimeRef.current;
+              }
             }
           })
           .catch(() => {
@@ -51,13 +55,15 @@ const ItemListRow = ({
         playPromiseRef.current = null;
       } else {
         videoRef.current.pause();
-        videoRef.current.currentTime = startTimeRef.current;
+        if (Number.isFinite(startTimeRef.current)) {
+          videoRef.current.currentTime = startTimeRef.current;
+        }
       }
     }
   };
 
   const handleTimeUpdate = () => {
-    if (videoRef.current && !isNaN(videoRef.current.duration)) {
+    if (videoRef.current && Number.isFinite(videoRef.current.duration)) {
       const video = videoRef.current;
       const endTime = startTimeRef.current + thumbnailVideoDuration;
       
@@ -70,9 +76,12 @@ const ItemListRow = ({
 
   const handleVideoLoaded = () => {
     // Set initial frame based on thumbnailVideoStart setting
-    if (videoRef.current && !isNaN(videoRef.current.duration)) {
+    if (videoRef.current && Number.isFinite(videoRef.current.duration)) {
       if (thumbnailVideoStart === "end") {
-        videoRef.current.currentTime = Math.max(0, videoRef.current.duration - thumbnailVideoDuration);
+        const newTime = Math.max(0, videoRef.current.duration - thumbnailVideoDuration);
+        if (Number.isFinite(newTime)) {
+          videoRef.current.currentTime = newTime;
+        }
       } else {
         videoRef.current.currentTime = 0;
       }
@@ -90,7 +99,7 @@ const ItemListRow = ({
         <span className="text-sm font-mono text-gray-600 flex-shrink-0 mt-1">{formattedIndex}</span>
         
         {(thumbnail || thumbnailVideo) && (
-          <div className="flex-shrink-0 w-48 h-32 overflow-hidden border border-[#111111]">
+          <div className="flex-shrink-0 w-32 h-24 overflow-hidden flex items-center justify-center">
             {thumbnailVideo ? (
               <video
                 ref={videoRef}
@@ -106,7 +115,7 @@ const ItemListRow = ({
               <img 
                 src={thumbnail} 
                 alt={title}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain"
               />
             )}
           </div>
