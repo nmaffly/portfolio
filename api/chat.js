@@ -30,9 +30,19 @@ let kbIndex = null;
 let kbIndexPromise = null;
 
 function setCorsHeaders(req, res) {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
+  const origin = req.headers.origin;
+  if (origin && allowedOrigins.includes(origin)) {
+    res.setHeader('Access-Control-Allow-Origin', origin);
+  } else if (allowAnyOrigin) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+  } else if (!origin && allowedOrigins.length > 0) {
+    res.setHeader('Access-Control-Allow-Origin', allowedOrigins[0]);
+  }
+
+  res.setHeader('Vary', 'Origin');
+  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  res.setHeader('Access-Control-Allow-Credentials', 'true');
 }
 
 function getClientIp(req) {
