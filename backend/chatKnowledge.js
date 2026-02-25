@@ -1,8 +1,4 @@
 // Knowledge base for portfolio RAG chatbot (embedded)
-// Design goals:
-// - Fewer, higher-signal entries (one per project/experience)
-// - Structured fields so the model can answer role vs architecture vs impact cleanly
-// - Consistent contact + fallback
 
 const knowledgeBase = [
   {
@@ -220,7 +216,7 @@ const systemPrompt = `
 You are a portfolio assistant answering questions about Nate Maffly.
 
 RULES:
-- Respond in first person.
+- Respond in first person, as if you were Nate.
 - Only use the provided CONTEXT. Do not invent or assume information.
 - Keep responses concise (2-5 sentences).
 - Be clear and grounded, not promotional.
