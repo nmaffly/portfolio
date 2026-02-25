@@ -7,6 +7,7 @@ import ItemListRow from './components/ItemListRow';
 import Modal from './components/Modal';
 import ScrollIndicator from './components/ScrollIndicator';
 import ChatInterface from './components/ChatInterface';
+import Hero from './Hero';
 import { useChapterNav } from './hooks/useChapterNav';
 import { portfolioData } from './data/portfolio';
 
@@ -63,41 +64,7 @@ function App() {
       >
         {/* HOME */}
         <Section index={0}>
-          <div className="col-span-12 lg:col-span-8">
-            <h1 className="text-7xl font-bold mb-8 leading-tight tracking-tight">
-              {portfolioData.intro.name}
-            </h1>
-            <p className="text-2xl mb-6 leading-relaxed">
-              {portfolioData.intro.headline}
-            </p>
-            <p className="text-xl mb-12 leading-relaxed">
-              {portfolioData.intro.subheadline}
-            </p>
-            <div className="flex gap-6 mt-16">
-              <a
-                href={portfolioData.intro.links.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="border border-[#111111] px-6 py-3 hover:bg-[#111111] hover:text-[#f7f7f5] transition-colors focus:outline-none focus:ring-2 focus:ring-[#1d4ed8]"
-              >
-                GITHUB
-              </a>
-              <a
-                href={portfolioData.intro.links.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="border border-[#111111] px-6 py-3 hover:bg-[#111111] hover:text-[#f7f7f5] transition-colors focus:outline-none focus:ring-2 focus:ring-[#1d4ed8]"
-              >
-                LINKEDIN
-              </a>
-              <a
-                href={`mailto:${portfolioData.intro.links.email}`}
-                className="border border-[#111111] px-6 py-3 hover:bg-[#111111] hover:text-[#f7f7f5] transition-colors focus:outline-none focus:ring-2 focus:ring-[#1d4ed8]"
-              >
-                EMAIL
-              </a>
-            </div>
-          </div>
+          <Hero />
         </Section>
 
         {/* PROJECTS */}
@@ -219,7 +186,7 @@ function App() {
                   href={selectedProject.links.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="border border-[#111111] px-6 py-3 hover:bg-[#111111] hover:text-[#f7f7f5] transition-colors focus:outline-none focus:ring-2 focus:ring-[#1d4ed8]"
+                  className="border border-[#111111] px-6 py-3 hover:bg-[#111111] hover:text-[#f7f7f5] transition-colors focus:outline-none focus:ring-2 focus:ring-[#2D5016]"
                 >
                   VIEW CODE
                 </a>
@@ -229,7 +196,7 @@ function App() {
                   href={selectedProject.links.live}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="border border-[#111111] px-6 py-3 hover:bg-[#111111] hover:text-[#f7f7f5] transition-colors focus:outline-none focus:ring-2 focus:ring-[#1d4ed8]"
+                  className="border border-[#111111] px-6 py-3 hover:bg-[#111111] hover:text-[#f7f7f5] transition-colors focus:outline-none focus:ring-2 focus:ring-[#2D5016]"
                 >
                   VIEW LIVE
                 </a>

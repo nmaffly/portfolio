@@ -93,10 +93,10 @@ const ItemListRow = ({
       onClick={onClick}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className="group w-full text-left border border-[#111111] p-6 transition-colors hover:bg-[#ececea] focus:outline-none focus:ring-2 focus:ring-[#1d4ed8]"
+      className="group w-full text-left border border-[#111111] p-6 transition-colors hover:bg-[#E8F1E8] focus:outline-none focus:ring-2 focus:ring-[#2D5016]"
     >
       <div className="flex items-start gap-4">
-        <span className="text-sm font-mono text-gray-600 flex-shrink-0 mt-1">{formattedIndex}</span>
+        <span className="text-sm font-mono text-[#2D5016] flex-shrink-0 mt-1 font-bold">{formattedIndex}</span>
         
         {(thumbnail || thumbnailVideo) && (
           <div className="flex-shrink-0 w-32 h-24 overflow-hidden flex items-center justify-center">
@@ -122,20 +122,20 @@ const ItemListRow = ({
         )}
         
         <div className="flex-grow">
-          <h3 className="text-2xl font-bold mb-2 group-hover:underline">{title}</h3>
+          <h3 className="text-2xl font-bold mb-2 group-hover:text-[#2D5016] group-hover:underline transition-colors">{title}</h3>
           {subtitle && <p className="text-base mb-3">{subtitle}</p>}
           {tags && tags.length > 0 && (
             <div className="flex flex-wrap gap-2 mt-3">
               {tags.map((tag, idx) => (
-                <span key={idx} className="text-xs font-mono text-gray-600">
-                  [{tag.toLowerCase()}]
+                <span key={idx} className="text-xs font-mono px-2 py-1 border border-[#111111] text-[#111111]">
+                  {tag.toLowerCase()}
                 </span>
               ))}
             </div>
           )}
         </div>
         
-        <span className="text-2xl flex-shrink-0 text-gray-400 group-hover:text-[#111111] transition-colors">
+        <span className="text-2xl flex-shrink-0 text-gray-400 group-hover:text-[#2D5016] transition-colors">
           →
         </span>
       </div>

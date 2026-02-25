@@ -31,12 +31,12 @@
 
   /* Focus styles */
   :focus-visible {
-    @apply outline-none ring-2 ring-[#1d4ed8];
+    @apply outline-none ring-2 ring-[#2D5016];
   }
 
   /* Selection color */
   ::selection {
-    @apply bg-[#1d4ed8] text-white;
+    @apply bg-[#2D5016] text-white;
   }
 }
 

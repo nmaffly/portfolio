@@ -98,12 +98,14 @@ const ChatInterface = () => {
             key={idx}
             className={`${
               msg.role === 'user' 
-                ? 'bg-[#ececea]' 
-                : 'bg-transparent'
-            } border border-[#111111] p-4`}
+                ? 'bg-[#E8F1E8] border-[#2D5016]' 
+                : 'bg-transparent border-[#111111]'
+            } border p-4`}
           >
             <div className="flex items-baseline justify-between mb-2">
-              <span className="text-xs font-mono font-bold">
+              <span className={`text-xs font-mono font-bold ${
+                msg.role === 'user' ? 'text-[#2D5016]' : 'text-[#111111]'
+              }`}>
                 [{msg.role === 'user' ? 'YOU' : 'NATE'}]
               </span>
               <span className="text-xs font-mono text-gray-600">
@@ -119,12 +121,12 @@ const ChatInterface = () => {
         {isLoading && (
           <div className="border border-[#111111] p-4">
             <div className="flex items-baseline justify-between mb-2">
-              <span className="text-xs font-mono font-bold">[NATE]</span>
+              <span className="text-xs font-mono font-bold text-[#2D5016]">[NATE]</span>
               <span className="text-xs font-mono text-gray-600">
                 {formatTime(new Date())}
               </span>
             </div>
-            <p className="text-base text-gray-600 font-mono">Typing...</p>
+            <p className="text-base text-[#2D5016] font-mono">Typing...</p>
           </div>
         )}
 
@@ -143,12 +145,12 @@ const ChatInterface = () => {
           onChange={(e) => setInput(e.target.value)}
           placeholder="Ask about projects, experience, skills..."
           disabled={isLoading}
-          className="flex-1 border border-[#111111] px-4 py-3 bg-[#f7f7f5] focus:outline-none focus:ring-2 focus:ring-[#1d4ed8] disabled:opacity-50 disabled:cursor-not-allowed"
+          className="flex-1 border border-[#111111] px-4 py-3 bg-[#f7f7f5] focus:outline-none focus:ring-2 focus:ring-[#2D5016] disabled:opacity-50 disabled:cursor-not-allowed"
         />
         <button
           type="submit"
           disabled={isLoading || !input.trim()}
-          className="border border-[#111111] px-6 py-3 hover:bg-[#111111] hover:text-[#f7f7f5] transition-colors disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:hover:text-[#111111] focus:outline-none focus:ring-2 focus:ring-[#1d4ed8]"
+          className="border border-[#111111] px-6 py-3 hover:bg-[#111111] hover:text-[#f7f7f5] transition-colors disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:hover:text-[#111111] focus:outline-none focus:ring-2 focus:ring-[#2D5016]"
         >
           SEND
         </button>
@@ -159,21 +161,21 @@ const ChatInterface = () => {
         <button
           onClick={() => setInput('What did you build at ScoutAI?')}
           disabled={isLoading}
-          className="text-xs font-mono border border-[#111111] px-3 py-1 hover:bg-[#ececea] transition-colors disabled:opacity-50"
+          className="text-xs font-mono border border-[#2D5016] text-[#2D5016] px-3 py-1 hover:bg-[#E8F1E8] transition-colors disabled:opacity-50"
         >
           ScoutAI project
         </button>
         <button
           onClick={() => setInput('What technologies do you use?')}
           disabled={isLoading}
-          className="text-xs font-mono border border-[#111111] px-3 py-1 hover:bg-[#ececea] transition-colors disabled:opacity-50"
+          className="text-xs font-mono border border-[#2D5016] text-[#2D5016] px-3 py-1 hover:bg-[#E8F1E8] transition-colors disabled:opacity-50"
         >
           Tech stack
         </button>
         <button
           onClick={() => setInput('Tell me about your experience at Aggie Analytics')}
           disabled={isLoading}
-          className="text-xs font-mono border border-[#111111] px-3 py-1 hover:bg-[#ececea] transition-colors disabled:opacity-50"
+          className="text-xs font-mono border border-[#2D5016] text-[#2D5016] px-3 py-1 hover:bg-[#E8F1E8] transition-colors disabled:opacity-50"
         >
           Leadership
         </button>

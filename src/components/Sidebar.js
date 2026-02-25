@@ -17,10 +17,10 @@ const Sidebar = ({ currentChapter, onNavigate }) => {
             <li key={section.id}>
               <button
                 onClick={() => onNavigate(section.id)}
-                className={`w-full text-left py-2 font-mono text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-[#1d4ed8] ${
+                className={`w-full text-left py-2 font-mono text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-[#2D5016] ${
                   currentChapter === section.id
-                    ? 'text-[#1d4ed8] underline font-bold'
-                    : 'text-[#111111] hover:text-[#1d4ed8]'
+                    ? 'text-[#2D5016] underline font-bold'
+                    : 'text-[#111111] hover:text-[#2D5016]'
                 }`}
               >
                 {section.name}
@@ -44,7 +44,7 @@ const Sidebar = ({ currentChapter, onNavigate }) => {
               href={portfolioData.intro.links.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs font-mono hover:underline focus:outline-none focus:ring-2 focus:ring-[#1d4ed8]"
+              className="text-xs font-mono hover:underline focus:outline-none focus:ring-2 focus:ring-[#FE7743]"
             >
               GITHUB ↗
             </a>
@@ -54,7 +54,7 @@ const Sidebar = ({ currentChapter, onNavigate }) => {
               href={portfolioData.intro.links.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs font-mono hover:underline focus:outline-none focus:ring-2 focus:ring-[#1d4ed8]"
+              className="text-xs font-mono hover:underline focus:outline-none focus:ring-2 focus:ring-[#FE7743]"
             >
               LINKEDIN ↗
             </a>
@@ -62,7 +62,7 @@ const Sidebar = ({ currentChapter, onNavigate }) => {
           <li>
             <a
               href={`mailto:${portfolioData.intro.links.email}`}
-              className="text-xs font-mono hover:underline focus:outline-none focus:ring-2 focus:ring-[#1d4ed8]"
+              className="text-xs font-mono hover:underline focus:outline-none focus:ring-2 focus:ring-[#FE7743]"
             >
               EMAIL ↗
             </a>
