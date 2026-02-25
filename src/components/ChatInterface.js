@@ -40,8 +40,9 @@ const ChatInterface = () => {
     setIsLoading(true);
 
     try {
-      // Call your Express backend on port 3001
-      const response = await fetch('http://localhost:3001/api/chat', {
+      // Call Vercel backend
+      const apiUrl = process.env.REACT_APP_API_URL || 'https://portfolio-murex-seven-98.vercel.app/api';
+      const response = await fetch(`${apiUrl}/chat`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
