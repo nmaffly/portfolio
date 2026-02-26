@@ -10,14 +10,14 @@ const Section = ({ id, index, title, subtitle, metadata, children }) => {
         {title && (
           <div className="mb-12">
             <div className="flex items-baseline justify-between mb-4">
-              <h2 className="text-5xl font-bold tracking-tight text-[#2D5016]">{title}</h2>
+              <h2 className="text-5xl font-bold tracking-tight inline-block bg-[#2D5016] text-white px-2 py-0.5">{title}</h2>
               {metadata && (
                 <span className="text-xs font-mono text-[#2D5016] font-semibold">{metadata}</span>
               )}
             </div>
             {subtitle && (
               <>
-                <p className="text-base mt-4 max-w-2xl mb-4">{subtitle}</p>
+                <p className="text-base mt-4 max-w-4xl mb-4">{subtitle}</p>
                 <div className="w-full h-[2px] bg-[#2D5016]"></div>
               </>
             )}

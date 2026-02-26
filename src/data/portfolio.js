@@ -6,7 +6,7 @@ const assetPath = (fileName) => {
 
 export const portfolioData = {
   intro: {
-    name: "Nate Maffly",
+    name: "Nathaniel Maffly",
     headline:
       "Engineer who builds systems that turn raw data into usable intelligence.",
     subheadline:
@@ -51,6 +51,63 @@ export const portfolioData = {
       links: {
         github: "https://github.com/AggieSportsAnalytics/ScoutAI",
         live: null
+      }
+    },
+    {
+      id: "courtcheck",
+      title: "COURTCHECK",
+      thumbnail: assetPath("courtcheck_thumbnail.png"),
+      thumbnailVideo: assetPath("courtcheck_demo.mp4"),
+      thumbnailVideoStart: "start", // "start" or "end"
+      thumbnailVideoDuration: 5, // seconds to play
+      demoVideo: assetPath("courtcheck_demo.mp4"),
+      why:
+        "Collegiate tennis matches are often played without referees, so I wanted to build a system that could automatically ground insights in what actually happened on court and present it clearly.",
+      how:
+        "Computer vision model that detects tennis court boundaries and ball movement.",
+      tags: ["Python", "Computer Vision", "Machine Learning"],
+      details: [
+        "Integrated YOLO-based player detection, TrackNet-style ball tracking, and Detectron2 court detection into a single pipeline",
+        "Generated annotated output videos with tracked ball path and player bounding boxes.",
+        "Trained on tennis match footage with 20k+ labeled frames using OpenCVAT and Roboflow workflows.",
+        "Presented at the Aggie Sports Analytics Case Competition and won 2nd place."
+      ],
+      stack: ["PyTorch", "OpenCV", "TrackNet", "YOLO", "Roboflow"],
+      links: {
+        github: "https://github.com/nmaffly/CourtCheck",
+        live: null
+      }
+    },
+    {
+      id: "wordle",
+      title: "WORDLE SOLVER",
+      thumbnail: assetPath("wordlesmith_thumbnail.png"),
+      thumbnailVideo: assetPath("wordle_demo.mp4"),
+      thumbnailVideoStart: "start", // "start" or "end"
+      thumbnailVideoDuration: 5, // seconds to play
+      demoVideo: assetPath("wordle_demo.mp4"),
+      why:
+        "I love Wordle and coding, so I built and evaluated a data‑driven, algorithmic solver that sits right at the intersection of both.",
+      how:
+        "Heuristic-based solver that ranks optimal guesses using feedback constraints.",
+      tags: ["Algorithms", "Python", "Java"],
+      details: [
+        "Built a Python/Flask Wordle solver web app end-to-end, wiring session-based game state, " +
+        "input validation, and UI rendering to deliver real-time guess recommendations. ",
+
+        "Designed a scoring engine that combines positional and overall letter-frequency statistics" +
+        "with Wordle feedback filtering to rank candidate words efficiently.",
+
+        "Implemented elimination-guess logic to maximize information gain when solution space is large, " +
+        "then narrowed to common-word ordering as constraints tighten.",
+
+        "Evaluated solver performance on the official answer list using NumPy/Pandas scripts, " +
+        "achieving 99% solved under 6 guesses with a 3.8 average."
+      ],
+      stack: ["Flask", "Numpy", "Pandas", "HTML/CSS"],
+      links: {
+        github: "https://github.com/nmaffly/WordleSolver",
+        live: "https://wordle-smith-2f51e2cdfd4e.herokuapp.com/"
       }
     },
     {
@@ -112,63 +169,6 @@ export const portfolioData = {
       stack: ["Flask", "Spotify API", "Flask-SQLAlchemy"],
       links: {
         github: "https://github.com/nmaffly/Wavelength",
-        live: null
-      }
-    },
-    {
-      id: "wordle",
-      title: "WORDLE SOLVER",
-      thumbnail: assetPath("wordlesmith_thumbnail.png"),
-      thumbnailVideo: assetPath("wordle_demo.mp4"),
-      thumbnailVideoStart: "start", // "start" or "end"
-      thumbnailVideoDuration: 5, // seconds to play
-      demoVideo: assetPath("wordle_demo.mp4"),
-      why:
-        "I love Wordle and coding, so I built and evaluated a data‑driven, algorithmic solver that sits right at the intersection of both.",
-      how:
-        "Heuristic-based solver that ranks optimal guesses using feedback constraints.",
-      tags: ["Algorithms", "Python", "Java"],
-      details: [
-        "Built a Python/Flask Wordle solver web app end-to-end, wiring session-based game state, " +
-        "input validation, and UI rendering to deliver real-time guess recommendations. ",
-
-        "Designed a scoring engine that combines positional and overall letter-frequency statistics" +
-        "with Wordle feedback filtering to rank candidate words efficiently.",
-
-        "Implemented elimination-guess logic to maximize information gain when solution space is large, " +
-        "then narrowed to common-word ordering as constraints tighten.",
-
-        "Evaluated solver performance on the official answer list using NumPy/Pandas scripts, " +
-        "achieving 99% solved under 6 guesses with a 3.8 average."
-      ],
-      stack: ["Flask", "Numpy", "Pandas", "HTML/CSS"],
-      links: {
-        github: "https://github.com/nmaffly/WordleSolver",
-        live: "https://wordle-smith-2f51e2cdfd4e.herokuapp.com/"
-      }
-    },
-    {
-      id: "courtcheck",
-      title: "COURTCHECK",
-      thumbnail: assetPath("courtcheck_thumbnail.png"),
-      thumbnailVideo: assetPath("courtcheck_demo.mp4"),
-      thumbnailVideoStart: "start", // "start" or "end"
-      thumbnailVideoDuration: 5, // seconds to play
-      demoVideo: assetPath("courtcheck_demo.mp4"),
-      why:
-        "Collegiate tennis matches are often played without referees, so I wanted to build a system that could automatically ground insights in what actually happened on court and present it clearly.",
-      how:
-        "Computer vision model that detects tennis court boundaries and ball movement.",
-      tags: ["Python", "Computer Vision", "Machine Learning"],
-      details: [
-        "Integrated YOLO-based player detection, TrackNet-style ball tracking, and Detectron2 court detection into a single pipeline",
-        "Generated annotated output videos with tracked ball path and player bounding boxes.",
-        "Trained on tennis match footage with 20k+ labeled frames using OpenCVAT and Roboflow workflows.",
-        "Presented at the Aggie Sports Analytics Case Competition and won 2nd place."
-      ],
-      stack: ["PyTorch", "OpenCV", "TrackNet", "YOLO", "Roboflow"],
-      links: {
-        github: "https://github.com/nmaffly/CourtCheck",
         live: null
       }
     },

@@ -7,7 +7,7 @@ import ItemListRow from './components/ItemListRow';
 import Modal from './components/Modal';
 import ScrollIndicator from './components/ScrollIndicator';
 import ChatInterface from './components/ChatInterface';
-import Hero from './Hero';
+import Hero from './components/Hero';
 import { useChapterNav } from './hooks/useChapterNav';
 import { portfolioData } from './data/portfolio';
 
@@ -117,8 +117,8 @@ function App() {
         {/* CHAT */}
         <Section 
           index={3} 
-          title="ASK ME ANYTHING" 
-          subtitle="Chat with an AI trained on my portfolio. Ask about projects, experience, or technical skills."
+          title="nateAI" 
+          subtitle="Chat with nateAI, an RAG-powered chatbot trained on my portfolio, built and deployed with Vercel serverless functions."
           metadata="LIVE"
         >
           <ChatInterface />

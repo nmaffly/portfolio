@@ -106,7 +106,7 @@ const ChatInterface = () => {
               <span className={`text-xs font-mono font-bold ${
                 msg.role === 'user' ? 'text-[#2D5016]' : 'text-[#111111]'
               }`}>
-                [{msg.role === 'user' ? 'YOU' : 'NATE'}]
+                [{msg.role === 'user' ? 'YOU' : 'nateAI'}]
               </span>
               <span className="text-xs font-mono text-gray-600">
                 {formatTime(msg.timestamp)}
@@ -121,7 +121,7 @@ const ChatInterface = () => {
         {isLoading && (
           <div className="border border-[#111111] p-4">
             <div className="flex items-baseline justify-between mb-2">
-              <span className="text-xs font-mono font-bold text-[#2D5016]">[NATE]</span>
+              <span className="text-xs font-mono font-bold text-[#2D5016]">[nateAI]</span>
               <span className="text-xs font-mono text-gray-600">
                 {formatTime(new Date())}
               </span>
