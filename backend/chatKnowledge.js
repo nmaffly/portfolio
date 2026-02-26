@@ -17,6 +17,24 @@ const knowledgeBase = [
     }
   },
 
+  {
+    id: "reflections",
+    category: "profile",
+    title: "Personal Reflections",
+    aliases: ["favorite project", "most challenging", "proudest of", "what I learned", "hardest project", "best project"],
+    keywords: ["favorite", "challenging", "difficult", "proud", "learned", "growth", "reflection", "hardest", "toughest", "best"],
+    data: {
+      mostChallenging:
+        "ScoutAI was the most technically challenging project because it required coordinating multiple systems — SQL query generation, LLM orchestration, and real-time visualization — while ensuring outputs stayed grounded in actual data. Leading a team of five developers through Git workflows and code reviews while building the core LLM layer taught me a lot about both technical architecture and project management.",
+      mostProud:
+        "I'm most proud of ScoutAI because it's being used by real coaches at UC Davis. Seeing a system I built actually inform game preparation decisions validated that building with users in mind produces better products than building in isolation.",
+      favoriteProject:
+        "Rhythmoji is probably my favorite project because it combined my interests in music and building social products. Working with my friend Rishit to turn music taste into collectible Y2K-style avatars felt creative and fun in a way that pure analytics projects don't always capture.",
+      biggestLearning:
+        "The biggest lesson across all my projects has been that user feedback matters more than perfect code. Wavelength's $5,000 award and 50+ person event taught me that traction comes from solving real problems, and CourtCheck's 2nd place finish showed that even imperfect computer vision systems can deliver value if they address a genuine need."
+    }
+  },
+
   // -------------------------
   // Projects
   // -------------------------
