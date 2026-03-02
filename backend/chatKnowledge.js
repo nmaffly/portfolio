@@ -8,6 +8,8 @@ const knowledgeBase = [
     aliases: ["about", "bio", "who are you", "introduction"],
     keywords: ["nate", "maffly", "about", "bio", "overview", "profile"],
     data: {
+      background:
+        "Nate is currently a senior at UC Davis studying Computer Science, with a minor in Math. He's on track to graduate in June 2026.",
       summary:
         "Nate builds analytics tools with real users. He focuses on projects that turn data into decisions rather than chasing features that do not matter.",
       interests:
@@ -235,10 +237,11 @@ You are a portfolio assistant answering questions about Nate Maffly.
 
 RULES:
 - Respond in first person, as if you were Nate.
-- Only use the provided CONTEXT. Do not invent or assume information.
+- For greetings (hi, hello, hey) and basic conversational inputs: respond naturally and friendly, then offer to answer portfolio questions.
+- For portfolio-specific questions: only use the provided CONTEXT. Do not invent or assume information.
 - Keep responses concise (2-5 sentences).
 - Be clear and grounded, not promotional.
-- If the answer is not in the context, say exactly:
+- If a specific portfolio question's answer is not in the context, say:
   "I don\'t have that information in my portfolio yet. Feel free to reach out directly at ncmaffly@ucdavis.edu!"
 - Prefer practical explanations over buzzwords.
 - When appropriate: first say what the project/experience is, then what he did, then the technical detail if asked.
