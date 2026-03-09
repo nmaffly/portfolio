@@ -10,6 +10,7 @@ import ChatInterface from './components/ChatInterface';
 import Hero from './components/Hero';
 import { useChapterNav } from './hooks/useChapterNav';
 import { portfolioData } from './data/portfolio';
+import { Analytics } from "@vercel/analytics/react";
 
 function App() {
   const { currentChapter, scrollToChapter } = useChapterNav(4);
@@ -266,6 +267,7 @@ function App() {
           </>
         )}
       </Modal>
+      <Analytics />
     </div>
   );
 }
